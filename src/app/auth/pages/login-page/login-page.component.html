@@ -1,0 +1,74 @@
+<ion-content class="ion-padding">
+  <!-- Loading Spinner -->
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+  <div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <ion-button
+        class="ion-padding log-button"
+        color="danger"
+        type="submit"
+        expand="block"
+        [disabled]="myForm.invalid"
+      >
+        Iniciar sesión
+        <ion-icon name="log-in"></ion-icon>
+      </ion-button>
+      <ion-item>
+        <ion-input
+          class="ion-margin"
+          label="Correo electrónico"
+          labelPlacement="floating"
+          placeholder="Correo electrónico"
+          formControlName="email"
+          type="text"
+        ></ion-input>
+        <ion-text color="danger" *ngIf="isValidField('email')">
+          {{ getErrorByField("email") }}</ion-text
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          class="ion-margin"
+          label="Contraseña"
+          labelPlacement="floating"
+          placeholder="Correo electrónico"
+          formControlName="password"
+          type="password"
+        ></ion-input>
+        <ion-text color="danger" *ngIf="isValidField('password')">
+          {{ getErrorByField("password") }}
+        </ion-text>
+      </ion-item>
+    </form>
+
+    <div class="ion-text-center">
+      <a routerLink="/auth/register">
+        <ion-text color="danger"> No tenes cuenta? Registrate! </ion-text>
+      </a>
+    </div>
+
+    <!-- Acceso rapido -->
+
+    <ion-button
+      fill="outline"
+      color="dark"
+      (click)="fastLogin(user.email, user.password)"
+      *ngFor="let user of testUsers | slice : 0 : 3"
+    >
+      <ion-label>{{ user.profile }}</ion-label>
+
+      <ion-icon name="man"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
+
+<style scoped>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+  }
+</style>

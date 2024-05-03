@@ -1,0 +1,15 @@
+{
+	"appId": "alarma.robo.app",
+	"appName": "alarmaRobo",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchFadeOutDuration": 3000,
+      "backgroundColor": "#ffffffff",
+      "splashFullScreen": true,
+      "splashImmersive": true
+    }
+  }
+}

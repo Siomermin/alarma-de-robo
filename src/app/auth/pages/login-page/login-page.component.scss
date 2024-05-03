@@ -1,0 +1,15 @@
+a {
+  text-decoration: none; /* Remove underline */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.log-button {
+  height: 90px;
+}
