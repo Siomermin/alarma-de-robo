@@ -19,16 +19,11 @@ export class HomePage {
   estado = '';
   clave = '';
   //Sonidos
-  //audioIzquierda = '../../assets/audios/queEstasPorHAcer.wav';
-  audioIzquierda = '../../assets/audios/quemetocas.wav';
-  //audioDerecha = '../../assets/audios/hurtandoDispisitivo.wav';
-  audioDerecha = '../../assets/audios/estanchoriando.wav';
-  //audioVertical = '../../assets/audios/bajame.wav';
-  audioVertical = '../../assets/audios/bajaeltelefono.wav';
-  //audioHorizontal = '../../assets/audios/malardo.wav';
-  audioHorizontal = '../../assets/audios/epa.wav';
-  //audioError = '../../assets/audios/esaNoEsLaClave.wav';
-  audioError = '../../assets/audios/lacontrasenia.wav';
+  audioIzquierda = '../../assets/audios/quemetocas.mp3';
+  audioDerecha = '../../assets/audios/estanchoriando.mp3';
+  audioVertical = '../../assets/audios/bajaeltelefono.mp3';
+  audioHorizontal = '../../assets/audios/epa.mp3';
+  audioError = '../../assets/audios/lacontrasenia.mp3';
 
   audio = new Audio();
 

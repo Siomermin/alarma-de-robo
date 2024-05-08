@@ -1,6 +1,6 @@
 {
 	"appId": "alarma.robo.app",
-	"appName": "alarmaRobo",
+	"appName": "Alarma robo",
 	"webDir": "www",
 	"bundledWebRuntime": false,
   "plugins": {
