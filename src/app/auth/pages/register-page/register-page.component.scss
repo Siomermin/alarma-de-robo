@@ -1,7 +1,9 @@
 a {
   text-decoration: none; /* Remove underline */
 }
-
+* {
+  font-size: 21px;
+}
 .form-container {
   display: flex;
   flex-direction: column;
