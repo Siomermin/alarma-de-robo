@@ -152,7 +152,8 @@ export class HomePage {
 
   errorApagado() {
           // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    this.primerIngresoFlash ? this.flashlight.switchOn() : null;
+    // this.primerIngresoFlash ? this.flashlight.switchOn() : null;
+    this.flashlight.switchOn();
     this.audio.src = this.audioError;
     this.audio.play();
     this.vibration.vibrate(5000);
