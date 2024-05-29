@@ -13,7 +13,7 @@
         [color]="alarmOnOff ? 'danger' : 'success'"
         (click)="cambiarAlarma()"
       >
-        <ion-icon name="power"></ion-icon>
+        <img [src]="alarmOnOff ? '../../assets/lock.png' : '../../assets/unlock.png'" alt="">
       </ion-button>
     </ion-col>
   </ion-row>

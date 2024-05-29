@@ -9,16 +9,25 @@ import { ValidatorsService } from 'src/app/shared/services/validators.service';
   providedIn: 'root',
 })
 export class AuthService {
+  public loggedUser?: any;
+  isUserLogged = false;
+  actualPassword = '';
+
   private afAuth = inject(AngularFireAuth);
   private router = inject(Router);
   private ngZone = inject(NgZone);
   private validatorsService = inject(ValidatorsService);
   private toastService = inject(ToastService);
 
-  public loggedUser?: any;
-  isUserLogged:boolean = false;
-  actualPassword:string = "";
 
+
+  get isLoggedIn(): boolean {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser')!);
+    return loggedUser !== null;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   public testUsers: TestUser[] = [
     {
       id: 1,
@@ -57,6 +66,7 @@ export class AuthService {
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   constructor() {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -94,6 +104,7 @@ export class AuthService {
 
   observeUserState() {
     this.afAuth.authState.subscribe((userState) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       userState && this.ngZone.run(() => this.router.navigate(['/home']));
     });
   }
@@ -111,14 +122,9 @@ export class AuthService {
     console.error(error.message);
   }
 
-  get isLoggedIn(): boolean {
-    const loggedUser = JSON.parse(localStorage.getItem('loggedUser')!);
-    return loggedUser !== null;
-  }
-
   logout() {
     return this.afAuth.signOut().then(() => {
-      this.actualPassword = "";
+      this.actualPassword = '';
       this.isUserLogged = false;
       localStorage.removeItem('loggedUser');
       this.router.navigate(['/auth/login']);
